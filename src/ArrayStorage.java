@@ -9,26 +9,21 @@ public class ArrayStorage {
         for (int i = 0; i < size(); i++) {
             storage[i] = null;
         }
-        /*for (Resume res: storage
-             ) {
-            if (res != null) res = null;
-        }*/
     }
 
     void save(Resume r) {
         if (storage[0] == null) {
             storage[0] = r;
-        } else
+        } else {
             for (int i = 1; i < storage.length; i++) {
                 if (storage[i] == null) {
                     storage[i] = r;
                     break;
                 }
             }
+        }
     }
 
-
-    //Добить этот метод, чтоб null не возвращал.
     Resume get(String uuid) {
         Resume gotResume = new Resume();
         for (int i = 0; i < size(); i++) {
@@ -74,10 +69,6 @@ public class ArrayStorage {
             if (storage[i] != null) count++;
             else break;
         }
-        /*for (Resume r : storage
-        ) {
-            if (r != null) count++;
-        }*/
         return count;
     }
 }

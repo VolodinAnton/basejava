@@ -34,7 +34,6 @@ public class ArrayStorage {
                 //далее передвигаем элементы влево
                 for (int j = i; j < size; j++) {
                     storage[j] = storage[j + 1];
-
                 }
                 storage[size] = null;
                 size--;

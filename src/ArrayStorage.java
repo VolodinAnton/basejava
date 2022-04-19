@@ -6,11 +6,10 @@ public class ArrayStorage {
     int size;
 
     void clear() {
-        int variableForLoop = size;
-        for (int i = 0; i < variableForLoop; i++) {
+        for (int i = 0; i < size; i++) {
             storage[i] = null;
-            size--;
         }
+        size = 0;
     }
 
     void save(Resume r) {
@@ -27,15 +26,13 @@ public class ArrayStorage {
     }
 
     void delete(String uuid) {
-        Resume gotResume;
         for (int i = 0; i < size; i++) {
             if (storage[i].uuid.equals(uuid)) {
-                storage[i] = null;
                 //далее передвигаем элементы влево
-                for (int j = i; j < size; j++) {
+                for (int j = i; j < size - 1; j++) {
                     storage[j] = storage[j + 1];
                 }
-                storage[size] = null;
+                storage[size - 1] = null;
                 size--;
             }
         }
